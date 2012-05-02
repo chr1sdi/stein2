@@ -5,5 +5,9 @@
 # Home page
 GET     /                           controllers.Application.index
 
+# Question Actions
+GET     /question/new               controllers.Question.propose
+POST    /question/new               controllers.Question.submit
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

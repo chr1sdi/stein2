@@ -1,0 +1,12 @@
+@main("New Question") {
+  @helper.form(action = routes.Question.submit){
+    <div class="hero-unit" style="margin-top:40px">
+      <h1 style="font-size:58px">Propose New Question</h1>
+      <hr/>
+      <textarea id="question" name="question" class="rich" placeholder="Enter text ..." style="width: 810px; height: 200px"></textarea>
+      <div>
+        <input class="btn" type="submit" value="Propose" />
+      </div>
+    </div>
+  }
+}
