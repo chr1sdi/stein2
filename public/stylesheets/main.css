@@ -1,0 +1,8 @@
+textarea.question-input {
+    width: 790px;
+    height: 200px;
+    font-size:30px;
+    padding:20px;
+    font-family:Monaco;sans-serif;
+    line-height:30px;
+}
