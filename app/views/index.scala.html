@@ -2,13 +2,20 @@
 
 @main("Questions") {
     <div class="hero-unit" style="margin-top:40px">
-        <a href="@routes.Question.propose" class="btn" style="float:right;">Propose a new Question</a>
+        <a href="@routes.Question.propose" class="btn btn-large btn-inverse" style="float:right;">Propose a new Question</a>
         <h1 style="font-size:58px">Questions </h1>
         <hr/>
 
+        @if(questions.size == 0){
+            <h2 style="text-align:center; margin-top:50px;">Oh dear, we have no approved questions yet.</h2>
+            <h2 style="text-align:center;">Better let all interviewees have jobs then.</h2>
+        }
         @questions.map { q =>
-            <div style="margin-top:20px;padding:20px 20px 10px 20px;border:1px solid #999;background-color:#fff">
+            <div class="question-view">
                 @Html(q.question)
+                @q.tags.map { tag =>
+                    <span class="badge badge-inverse">@tag</span>
+                }
             </div>
         }
     </div>

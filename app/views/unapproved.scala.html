@@ -1,0 +1,22 @@
+@(questions: List[models.Question])
+
+@main("Unapproved Questions") {
+    <div class="hero-unit" style="margin-top:40px">
+        <h1 style="font-size:58px">Unapproved Questions</h1>
+        <hr/>
+        @questions.map { q =>
+          <div class="question-view">
+            @Html(q.question)
+              @q.tags.map { tag =>
+                <span class="badge badge-inverse">@tag</span>
+              }
+             <div style="text-align:right;">
+                 @helper.form(action = routes.Question.approve) {
+                    <input type="hidden" name="id" value="@q.id"/>
+                    <input type="submit" class="btn btn-large btn-primary" value="Approve"/>
+                 }
+             </div>
+          </div>
+        }
+    </div>
+}

@@ -4,15 +4,20 @@ import play.api._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc._
-import com.mongodb.casbah.Imports._
-import models.Question
+import models.Questions
+import org.clapper.markwrap._
 
-object Question extends Controller {
-
-  val connection = MongoConnection()
+object Question extends Controller with Secured {
 
   val proposal = Form(
-    single("question", nonEmptyText)
+    tuple(
+      "question" -> nonEmptyText,
+      "tags" -> text
+    )
+  )
+
+  val approval = Form(
+    single("id", nonEmptyText)
   )
 
   def propose  = Action {
@@ -20,13 +25,33 @@ object Question extends Controller {
   }
 
   def submit = Action { implicit request =>
-
     proposal.bindFromRequest.fold(
       errors => Ok(views.html.propose()),
-      success => {
-        connection("stein")("questions") += DBObject("question" -> success)
+      question => {
+        val parser = MarkWrap.parserFor(MarkupType.Markdown)
+        val (txt, tags) = question
+        Questions.propose(parser.parseToHTML(txt), tags.split(" ").toList match {
+          case List("") => List.empty[String]
+          case list => list
+        })
         Redirect(routes.Application.index())
       }
     )
+  }
+
+  def unapproved = Action {
+    Ok(views.html.unapproved(Questions.unapproved))
+  }
+
+  def approve = Secured("admin", "password")  {
+    Action { implicit request =>
+      approval.bindFromRequest.fold(
+        errors => Redirect(routes.Question.unapproved()),
+        id => {
+          Questions.approve(id)
+          Redirect(routes.Application.index())
+        }
+      )
+    }
   }
 }

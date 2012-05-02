@@ -3,11 +3,14 @@
     <div class="hero-unit" style="margin-top:40px">
       <h1 style="font-size:58px">Propose New Question</h1>
       <hr/>
-      <div id="wmd-button-bar" class="wmd-panel"></div>
-      <hr/>
-      <textarea id="wmd-input" name="question" class="wmd-panel question-input"></textarea>
+      <div class="wmd-panel">
+        <div id="wmd-button-bar"></div>
+        <textarea class="wmd-input question-input" name="question" id="wmd-input" placeholder="The Question"></textarea>
+      </div>
+      <input type="text" name="tags" class="tags-field" placeholder="Tags (e.g. .net, java, technical, personal)" />
       <div>
         <input class="btn btn-large btn-primary" type="submit" value="Propose" />
+        <a href="@routes.Application.index" class="btn btn-large">Cancel</a>
       </div>
     </div>
   }

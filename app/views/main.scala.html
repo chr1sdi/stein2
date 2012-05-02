@@ -11,7 +11,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")"></link>
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/wmd.css")"></link>
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Markdown.Editor.css")"></link>
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/main.css")"></link>
 
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("img/favicon.png")">
@@ -23,10 +23,25 @@
     <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
     <script src="@routes.Assets.at("javascripts/tabby.js")" type="text/javascript"></script>
     <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
-    <script src="@routes.Assets.at("javascripts/showdown.js")" type="text/javascript"></script>
-    <script src="@routes.Assets.at("javascripts/wmd.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-transition.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-modal.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-tooltip.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/Markdown.Converter.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/Markdown.Sanitizer.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/Markdown.Editor.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/prettify.js")" type="text/javascript"></script>
     <script type="text/javascript">
         $("textarea.question-input").tabby();
+        $(".question-view pre").addClass("prettyprint linenums");
+        $(prettyPrint);
+
+            (function () {
+            var converter1 = Markdown.getSanitizingConverter();
+            var editor1 = new Markdown.Editor(converter1);
+            editor1.run();
+
+
+            })();
     </script>
   </body>
 </html>
