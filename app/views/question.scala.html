@@ -1,0 +1,6 @@
+@(q: models.Question)
+
+@Html(q.question)
+@q.tags.map { tag =>
+    <span class="badge badge-inverse">@tag</span>
+}

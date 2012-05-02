@@ -12,10 +12,7 @@
         }
         @questions.map { q =>
             <div class="question-view">
-                @Html(q.question)
-                @q.tags.map { tag =>
-                    <span class="badge badge-inverse">@tag</span>
-                }
+                @question(q)
             </div>
         }
     </div>

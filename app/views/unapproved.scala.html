@@ -6,10 +6,7 @@
         <hr/>
         @questions.map { q =>
           <div class="question-view">
-            @Html(q.question)
-              @q.tags.map { tag =>
-                <span class="badge badge-inverse">@tag</span>
-              }
+             @question(q)
              <div style="text-align:right;">
                  @helper.form(action = routes.Question.approve) {
                     <input type="hidden" name="id" value="@q.id"/>
