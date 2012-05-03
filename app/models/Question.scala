@@ -14,7 +14,8 @@ case class Question(@Key("_id") id: Option[ObjectId] = None,
 
 object Questions{
   val connection = MongoConnection()
-
+  MongoDBObject()
+  def withTag(tag: String) = connection("stein")("questions").find(MongoDBObject("tags" -> tag)).map(grater[Question].asObject(_)).toList
   def unapproved = connection("stein")("questions").find(MongoDBObject("approved" -> false)).map(grater[Question].asObject(_)).toList
   def propose(question: Question) = connection("stein")("questions") += grater[Question].asDBObject(question)
   def approved = connection("stein")("questions").find(MongoDBObject("approved" -> true)).map(grater[Question].asObject(_)).toList

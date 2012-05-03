@@ -57,4 +57,8 @@ object Question extends Controller with Secured {
       )
     }
   }
+
+  def withTag(tag: String) = Action {
+    Ok(views.html.index(Questions.withTag(tag)))
+  }
 }

@@ -2,5 +2,5 @@
 
 @Html(q.question)
 @q.tags.map { tag =>
-    <span class="badge badge-inverse">@tag</span>
+  <a href="@routes.Question.withTag(tag)" class="badge badge-inverse">@tag</a>
 }
