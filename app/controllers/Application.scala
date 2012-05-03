@@ -6,7 +6,7 @@ import models.Questions
 
 object Application extends Controller {
 
-  def index = Action {
+  def index = Action { implicit request =>
     Ok(views.html.index(Questions.approved))
   }
 

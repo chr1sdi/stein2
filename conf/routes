@@ -13,7 +13,8 @@ POST    /questions/approve           controllers.Question.approve
 GET     /questions/tagged/:tag       controllers.Question.withTag(tag:String)
 GET     /questions/view/:id          controllers.Question.view(id:String)
 
-# Question Pack
+# Pack Actions
+GET     /pack/current/clear          controllers.Pack.renew
 GET     /pack/current                controllers.Pack.current
 GET     /pack/add/:id                controllers.Pack.add(id:String)
 

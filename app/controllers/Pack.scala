@@ -22,4 +22,8 @@ object Pack extends Controller {
       "pack" -> (request.session.get("pack").getOrElse("") + ";" + id)
     )
   }
+
+  def renew = Action {
+    Redirect(routes.Application.index).withNewSession
+  }
 }

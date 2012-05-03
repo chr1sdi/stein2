@@ -67,8 +67,4 @@ object Question extends Controller with Secured {
   def view(id: String) = Action {
     Ok(views.html.view(Questions.single(id)))
   }
-
-  def add(id:String) = Action {
-    NotImplemented
-  }
 }
