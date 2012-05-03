@@ -1,6 +1,9 @@
 @(q: models.Question)
 
+<a href="@routes.Question.view(q.id.get.toStringMongod)" class="label label-info" style="float:right;"><i class="icon-share-alt icon-white"></i></a>
+<a href="@routes.Pack.add(q.id.get.toStringMongod)" class="label label-info" style="float:right;margin-right:10px;"><i class="icon-plus icon-white"></i></a>
+
 @Html(q.question)
-@q.tags.map { tag =>
+ @q.tags.map { tag =>
   <a href="@routes.Question.withTag(tag)" class="badge badge-inverse">@tag</a>
 }

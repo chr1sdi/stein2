@@ -12,6 +12,7 @@ object Question extends Controller with Secured {
   val proposal = Form(
     tuple(
       "question" -> nonEmptyText,
+      "answer" -> nonEmptyText,
       "tags" -> text
     )
   )
@@ -29,14 +30,15 @@ object Question extends Controller with Secured {
       errors => Ok(views.html.propose()),
       question => {
         val parser = MarkWrap.parserFor(MarkupType.Markdown)
-        val (txt, tags) = question
-        Questions.propose(models.Question(
-          question = parser.parseToHTML(txt),
+        val (q, a, tags) = question
+        Questions.propose(models.Question.apply(
+          question = parser.parseToHTML(q),
+          answer = parser.parseToHTML(a),
           tags = tags.split(" ").toList match {
             case List("") => List.empty[String]
             case list => list
-          })
-        )
+          }
+        ))
         Redirect(routes.Application.index())
       }
     )
@@ -60,5 +62,13 @@ object Question extends Controller with Secured {
 
   def withTag(tag: String) = Action {
     Ok(views.html.index(Questions.withTag(tag)))
+  }
+
+  def view(id: String) = Action {
+    Ok(views.html.view(Questions.single(id)))
+  }
+
+  def add(id:String) = Action {
+    NotImplemented
   }
 }

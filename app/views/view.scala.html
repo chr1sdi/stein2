@@ -1,0 +1,28 @@
+@(question: models.Question)
+
+@main("Question") {
+    <div class="hero-unit" style="margin-top:40px">
+        <a href="@routes.Question.propose" class="btn btn-large btn-inverse" style="float:right;">Propose a new Question</a>
+        <h1 style="font-size:58px">Question </h1>
+        <hr/>
+        <div class="question-view">
+            @Html(question.question)
+        </div>
+        <div style="margin-top:20px;">
+            @question.tags.map { tag =>
+                <a href="@routes.Question.withTag(tag)" class="badge badge-inverse">@tag</a>
+            }
+        </div>
+        <div class="question-view">
+            @Html(question.answer)
+        </div>
+        <div style="margin-top:20px;">
+            @if(!question.approved){
+                @helper.form(action = routes.Question.approve) {
+                    <input type="hidden" name="id" value="@question.id"/>
+                    <input type="submit" class="btn btn-large btn-primary" value="Approve"/>
+                }
+            }
+        </div>
+    </div>
+}

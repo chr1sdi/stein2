@@ -11,6 +11,11 @@ POST    /questions/new               controllers.Question.submit
 GET     /questions/unapproved        controllers.Question.unapproved
 POST    /questions/approve           controllers.Question.approve
 GET     /questions/tagged/:tag       controllers.Question.withTag(tag:String)
+GET     /questions/view/:id          controllers.Question.view(id:String)
+
+# Question Pack
+GET     /pack/current                controllers.Pack.current
+GET     /pack/add/:id                controllers.Pack.add(id:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

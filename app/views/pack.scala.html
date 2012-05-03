@@ -1,0 +1,13 @@
+@(questions: List[models.Question])
+
+@main("Question Pack") {
+<div class="hero-unit" style="margin-top:40px">
+    <h1 style="font-size:58px">Question Pack</h1>
+    <hr/>
+    @questions.map { q =>
+        <div class="question-view">
+            @question(q)
+        </div>
+    }
+</div>
+}
