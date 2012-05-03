@@ -17,6 +17,8 @@ GET     /questions/view/:id          controllers.Question.view(id:String)
 GET     /pack/current/clear          controllers.Pack.renew
 GET     /pack/current                controllers.Pack.current
 GET     /pack/add/:id                controllers.Pack.add(id:String)
+POST    /pack/save                   controllers.Pack.save
+GET     /pack/:id                    controllers.Pack.retrieve(id:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

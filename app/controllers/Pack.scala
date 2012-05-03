@@ -6,9 +6,16 @@ import play.api.data.Forms._
 import play.api.mvc._
 import org.clapper.markwrap._
 import models.{Packs, Questions}
+import com.mongodb.casbah.commons.Imports._
 
 object Pack extends Controller {
 
+  val pack = Form(
+    tuple(
+      "identifier" -> nonEmptyText,
+      "questions" -> nonEmptyText
+    )
+  )
   def current = Action { implicit request =>
     request.session.get("pack").map { ids =>
       val questions = Questions.many(ids.split(';').filter(_.nonEmpty).distinct.toList)
@@ -31,10 +38,23 @@ object Pack extends Controller {
   }
 
   def save = Action { implicit request =>
-    NotImplemented
+    pack.bindFromRequest.fold(
+      errors => Redirect(routes.Pack.current()),
+      newPack => {
+        Packs.insert(models.Pack(
+          questions = newPack._2.split(';').filter(_.nonEmpty).distinct.map(new ObjectId(_)).toList,
+          identifier = newPack._1))
+
+        Redirect(routes.Pack.retrieve(newPack._1))
+      }
+    )
   }
 
-  def retireve(identifier: String) = Action {
-    NotImplemented
+  def retrieve(identifier: String) = Action {
+    Ok(views.html.pack(Packs.retrieve(identifier).map { pack =>
+      Questions.many(pack.questions.map(_.toStringMongod))
+    }.getOrElse {
+      List.empty[models.Question]
+    }))
   }
 }

@@ -12,6 +12,6 @@ object Packs {
   val connection = MongoConnection()
   def collection = connection("stein")("packs")
 
-  def save(pack: Pack) = collection += grater[Pack].asDBObject(pack)
+  def insert(pack: Pack) = collection += grater[Pack].asDBObject(pack)
   def retrieve(identifier:String) = collection.findOne(MongoDBObject("identifier" -> identifier)).map(grater[Pack].asObject(_))
 }

@@ -14,6 +14,14 @@ textarea.question-input {
     line-height:25px;
 }
 
+.packname-field {
+    width:200px;
+    font-size:15px;
+    padding:9px;
+    font-family:Monaco, sans-serif;
+    line-height:21px;
+}
+
 .question-view {
     margin-top:20px;
     padding:20px 20px 10px 20px;

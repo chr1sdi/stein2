@@ -10,5 +10,14 @@
             @question(q)
         </div>
     }
+    <div style="margin-top:20px">
+
+            @helper.form(action = routes.Pack.save) {
+                <input type="text" name="identifier" class="packname-field" placeholder="identifier" style="float:left;margin-right:10px;" />
+                <input type="hidden" name="questions" value="@questions.foldLeft(";")({ (a,i) => a + ";" + i.id.get.toStringMongod})">
+                <input type="submit" class="btn btn-large btn-primary" value="Save Pack">
+            }
+    </div>
+
 </div>
 }
