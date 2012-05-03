@@ -30,10 +30,13 @@ object Question extends Controller with Secured {
       question => {
         val parser = MarkWrap.parserFor(MarkupType.Markdown)
         val (txt, tags) = question
-        Questions.propose(parser.parseToHTML(txt), tags.split(" ").toList match {
-          case List("") => List.empty[String]
-          case list => list
-        })
+        Questions.propose(models.Question(
+          question = parser.parseToHTML(txt),
+          tags = tags.split(" ").toList match {
+            case List("") => List.empty[String]
+            case list => list
+          })
+        )
         Redirect(routes.Application.index())
       }
     )

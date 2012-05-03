@@ -442,15 +442,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Developer/play-2.0/repository/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.5.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar:///Developer/play-2.0/repository/cache/org.scalaj/scalaj-collection_2.9.1/jars/scalaj-collection_2.9.1-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -560,6 +551,69 @@
       <library>
         <CLASSES>
           <root url="jar:///Developer/play-2.0/repository/local/asm/asm-analysis/3.3.1/jars/asm-analysis.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/com.novus/salat-core_2.9.1/jars/salat-core_2.9.1-0.0.8-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/com.novus/salat-util_2.9.1/jars/salat-util_2.9.1-0.0.8-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/org.scala-lang/scalap/jars/scalap-2.9.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/framework/sbt/boot/scala-2.9.1/lib/scala-compiler.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.7.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/net.liftweb/lift-json_2.9.1/jars/lift-json_2.9.1-2.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -982,15 +1036,6 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Developer/play-2.0/repository/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.5.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
           <root url="jar:///Developer/play-2.0/repository/cache/org.scalaj/scalaj-collection_2.9.1/jars/scalaj-collection_2.9.1-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -1100,6 +1145,69 @@
       <library>
         <CLASSES>
           <root url="jar:///Developer/play-2.0/repository/local/asm/asm-analysis/3.3.1/jars/asm-analysis.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/com.novus/salat-core_2.9.1/jars/salat-core_2.9.1-0.0.8-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/com.novus/salat-util_2.9.1/jars/salat-util_2.9.1-0.0.8-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/org.scala-lang/scalap/jars/scalap-2.9.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/framework/sbt/boot/scala-2.9.1/lib/scala-compiler.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.7.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/net.liftweb/lift-json_2.9.1/jars/lift-json_2.9.1-2.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Developer/play-2.0/repository/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

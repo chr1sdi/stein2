@@ -2,32 +2,22 @@ package models
 
 import com.mongodb.casbah.Imports._
 import com.mongodb.casbah.commons.ValidBSONType.BasicDBList
+import com.novus.salat._
+import com.novus.salat.global._
+import com.mongodb.casbah.Imports._
+import com.novus.salat.annotations._
 
-case class Question(question:String, id:String = null, tags: List[String] = List.empty[String])
+case class Question(@Key("_id") id: Option[ObjectId] = None,
+                    question:String,
+                    tags: List[String] = List.empty[String],
+                    approved: Boolean = false)
 
 object Questions{
   val connection = MongoConnection()
 
-  def unapproved = connection("stein")("questions").filterNot { o =>
-      o.getAsOrElse[Boolean]("approved", false)
-    }.map { o =>
-      Question(
-        o.getAs[String]("question").get,
-        o.getAs[ObjectId]("_id").get.toStringMongod,
-        o.getAsOrElse[BasicDBList]("tags", new BasicDBList()).toList.map(_.toString))
-    }.toList
-
-  def propose(question: String, tags: List[String] = List.empty[String]) = connection("stein")("questions") +=
-    DBObject("question" -> question, "approved" -> false, "tags" -> tags)
-
-  def approved = connection("stein")("questions").filter { o =>
-      o.getAsOrElse("approved", false)
-    }.map(o => {
-      Question(
-        question = o.getAs[String]("question").get,
-        tags = o.getAsOrElse[BasicDBList]("tags", new BasicDBList()).toList.map(_.toString))
-    }).toList
-
+  def unapproved = connection("stein")("questions").find(MongoDBObject("approved" -> false)).map(grater[Question].asObject(_)).toList
+  def propose(question: Question) = connection("stein")("questions") += grater[Question].asDBObject(question)
+  def approved = connection("stein")("questions").find(MongoDBObject("approved" -> true)).map(grater[Question].asObject(_)).toList
   def approve(id: String) {
     connection("stein")("questions").update(
       MongoDBObject("_id" ->  new ObjectId(id)),
