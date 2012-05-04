@@ -2,11 +2,10 @@
 
 @main("Questions") {
     <div class="hero-unit" style="margin-top:40px">
-        <a href="@routes.Question.propose" class="btn btn-large btn-inverse" style="float:right;">Propose a new Question</a>
+        <a href="@routes.Question.propose" id="propose-question" class="btn btn-large btn-inverse" style="float:right;">Propose a new Question</a>
         <a href="@routes.Pack.current" class="btn btn-large btn-primary" style="float:right; margin-right:10px;">Interview Pack</a>
-        <h1 style="font-size:58px">Questions </h1>
+        <h1 style="font-size:58px" id="main-header">Questions</h1>
         <hr/>
-
         @if(questions.size == 0){
             <h2 style="text-align:center; margin-top:50px;">Oh dear, we have no approved questions yet.</h2>
             <h2 style="text-align:center;">Better let all interviewees have jobs then.</h2>

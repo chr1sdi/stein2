@@ -16,11 +16,12 @@ object Pack extends Controller {
       "questions" -> nonEmptyText
     )
   )
+
   def current = Action { implicit request =>
     request.session.get("pack").map { ids =>
       val questions = Questions.many(ids.split(';').filter(_.nonEmpty).distinct.toList)
       Ok(views.html.pack(questions)).withSession(
-        "pack" -> questions.foldLeft(";") { (acc, q) => acc + ";" + q.id.get.toStringMongod }
+        "pack" -> questions.foldLeft(";") { (a, q) => a + ";" + q.id.get.toStringMongod }
       )
     }.getOrElse {
       Redirect(routes.Application.index())
