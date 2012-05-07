@@ -2,9 +2,21 @@
 
 @main("Questions") {
     <div class="hero-unit" style="margin-top:40px">
-        <a href="@routes.Question.propose" id="propose-question" class="btn btn-large btn-inverse" style="float:right;">Propose a new Question</a>
-        <a href="@routes.Pack.current" class="btn btn-large btn-primary" style="float:right; margin-right:10px;">Interview Pack</a>
-        <h1 style="font-size:58px" id="main-header">Questions</h1>
+
+        <h1 style="font-size:58px" id="main-header">La questions</h1>
+        <ul>
+            <li><a href="@routes.Question.propose" id="propose-question" class="btn btn-large btn-inverse">Propose a new Question</a></li>
+            <li><a href="@routes.Question.unapproved" id="unapproved-questions" class="btn btn-large btn-inverse">See unapproved questions</a></li>
+            <li><a href="@routes.Pack.current" class="btn btn-large btn-primary">Interview Pack</a></li>
+        </ul>
+        <p>
+            <h3 style="font-size:28px;">New stuff added</h3>
+            <p style="font-size:15px;">
+                Please press the new button right here
+            </p>
+            <a href="@routes.Tags.tagList" id="tags-list" class="btn">See all TAGs</a>
+        </p>
+
         <hr/>
         @if(questions.size == 0){
             <h2 style="text-align:center; margin-top:50px;">Oh dear, we have no approved questions yet.</h2>

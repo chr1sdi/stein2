@@ -1,13 +1,13 @@
 package unit
 
-/**
- * Created with IntelliJ IDEA.
- * User: zenon
- * Date: 03/05/12
- * Time: 12:33
- * To change this template use File | Settings | File Templates.
- */
+import org.specs2.mutable._
 
-class CalcTest {
+import play.api.test._
+import play.api.test.Helpers._
+
+class CalcTest extends Specification{
+  "addind two numbers" in {
+    "must result in addition of them " must have size(32)
+  }
 
 }

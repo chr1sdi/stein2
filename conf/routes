@@ -20,5 +20,8 @@ GET     /pack/add/:id                controllers.Pack.add(id:String)
 POST    /pack/save                   controllers.Pack.save
 GET     /pack/:id                    controllers.Pack.retrieve(id:String)
 
+# Tags Actions
+GET     /tags/list                   controllers.Tags.tagList
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
