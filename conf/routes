@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Question Actions
+GET     /questions/new               controllers.Question.propose
+POST    /questions/new               controllers.Question.submit
+GET     /questions/unapproved        controllers.Question.unapproved
+POST    /questions/approve           controllers.Question.approve
+GET     /questions/tagged/:tag       controllers.Question.withTag(tag:String)
+GET     /questions/view/:id          controllers.Question.view(id:String)
+
+# Pack Actions
+GET     /pack/current/clear          controllers.Pack.renew
+GET     /pack/current                controllers.Pack.current
+GET     /pack/add/:id                controllers.Pack.add(id:String)
+POST    /pack/save                   controllers.Pack.save
+GET     /pack/:id                    controllers.Pack.retrieve(id:String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
